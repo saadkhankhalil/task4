@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>form pattern matched</title>
+    <style>
+        .body {
+            margin-left: 400px;
+            margin-top: 100px;
+            background-color: aqua;
+            height: 400px;
+            width: 400px;
+        }
+
+        .margin {
+            margin-left: 30px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <div class="margin">
+            <form id="myform">
+                Email:<input type="text" id="email">
+                <br />
+                <br />
+                reg no: <input type="text" id="regno">
+                <br />
+                <br />
+                phone no:<input type="text" id="phoneno">
+                <br />
+                <br />
+                web address:<input type="text" id="web">
+                <br />
+                <br />
+                ip address:<input type="text" id="ip">
+                <br />
+                <br />
+                CNIC:<input type="text" id="cnic">
+                <br />
+                <br />
+                <button type="button" onclick="execute()">execute</button>
+                <br />
+                <br />
+            </form>
+        </div>
+    </div>
+    <script>
+        function execute() {
+            var Email = document.getElementById("email").value;
+            var e = /^\w+@\w+\.\w+$/;
+            if (e.test(Email)) {
+                alert("correct input email");
+            }
+            else {
+                alert("incorrect email");
+            }
+            var regno = document.getElementById("regno").value;
+            var r = /^SU-\d{2}-\d{2}-\d{3}-\d{3}$/;
+            if (r.test(regno)) {
+                alert("correct input");
+            } else {
+                alert("incorrect reg no");
+            }
+
+            var phone = document.getElementById("phoneno").value;
+            var p = /^\d{11}$/;
+            if (p.test(phone)) {
+                alert("correct phone number");
+            }
+            else {
+                alert("incorrect phone number");
+            }
+            var web = document.getElementById("web").value;
+            var w = /^www\.\w+\.com\.pk$/;
+            if (w.test(web)) {
+                alert("matched web address");
+            } else {
+                alert("not matched web address");
+
+            }
+            var ip = document.getElementById("ip").value;
+            var i = /^192\.\d{3}\.[0-9]+\.[0-9]+$/;
+            if (i.test(ip)) {
+                alert("matched IP address");
+            }
+            else {
+                alert("not matched IP address");
+            }
+            var cnic = document.getElementById("cnic").value;
+            var c = /^\d{5}-\d{7}-\d{1}$/;
+            if (c.test(cnic)) {
+                alert("matched CNIC");
+            }
+            else {
+                alert("not matched CNIC");
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
